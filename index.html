@@ -1078,6 +1078,22 @@
       refreshDashboard();
     }
 
+    function duplicateNocturia(id) {
+      const src = state.nocturia.find((n) => n.id === id);
+      if (!src) return;
+      const copy = {
+        ...src,
+        id: crypto.randomUUID(),
+        date: todayISO(),
+      };
+      state.nocturia.unshift(copy);
+      save(state);
+      renderNocturia();
+      refreshDashboard();
+      beginEditNocturia(copy.id);
+      toast("Night duplicated — confirm date and save/update if needed");
+    }
+
     function renderMigraines() {
       const el = document.getElementById("migraine-list");
       if (!state.migraines.length) {
@@ -1123,12 +1139,16 @@
         <td>${escapeHtml(n.ptsd || n.next || "—")}</td>
         <td style="white-space:nowrap">
           <button class="btn ghost" type="button" data-edit-n="${n.id}">Edit</button>
+          <button class="btn ghost" type="button" data-dup-n="${n.id}">Duplicate</button>
           <button class="btn ghost" type="button" data-del-n="${n.id}">Delete</button>
         </td>
       </tr>`).join("")}
       </tbody></table>`;
       el.querySelectorAll("[data-edit-n]").forEach((b) =>
         b.addEventListener("click", () => beginEditNocturia(b.getAttribute("data-edit-n")))
+      );
+      el.querySelectorAll("[data-dup-n]").forEach((b) =>
+        b.addEventListener("click", () => duplicateNocturia(b.getAttribute("data-dup-n")))
       );
       el.querySelectorAll("[data-del-n]").forEach((b) =>
         b.addEventListener("click", () => deleteNocturia(b.getAttribute("data-del-n")))
