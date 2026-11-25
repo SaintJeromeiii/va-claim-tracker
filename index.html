@@ -243,6 +243,8 @@
       <button type="button" data-tab="dashboard" aria-selected="true">Dashboard</button>
       <button type="button" data-tab="migraines">Migraine log</button>
       <button type="button" data-tab="nocturia">Nocturia log</button>
+      <button type="button" data-tab="meds">Meds timeline</button>
+      <button type="button" data-tab="packet">Claim packet</button>
       <button type="button" data-tab="cfr">CFR reference</button>
       <button type="button" data-tab="cp">C&amp;P prep</button>
       <button type="button" data-tab="export">Google export</button>
@@ -397,7 +399,9 @@
                 </select>
               </div>
             </div>
-            <div class="row">
+            <label for="m-stopped">What ordinary activity did you stop? (important for “prostrating”)</label>
+            <input id="m-stopped" placeholder="Left work; could not drive; dark quiet room; cancelled plans" />
+            <div class="row-3">
               <div>
                 <label for="m-work">Missed work / activities?</label>
                 <select id="m-work">
@@ -406,10 +410,19 @@
                 </select>
               </div>
               <div>
-                <label for="m-impact">Work / life impact</label>
-                <input id="m-impact" placeholder="Left work early; dark room 4 hrs" />
+                <label for="m-hours">Hours of work missed</label>
+                <input id="m-hours" type="number" min="0" step="0.5" placeholder="e.g. 4" />
+              </div>
+              <div>
+                <label for="m-left-early">Left early / duties cut?</label>
+                <select id="m-left-early">
+                  <option value="N">No</option>
+                  <option value="Y">Yes</option>
+                </select>
               </div>
             </div>
+            <label for="m-impact">Work / life impact details</label>
+            <input id="m-impact" placeholder="Supervisor sent me home; unpaid leave; could not parent" />
             <label for="m-notes">Notes for C&amp;P</label>
             <textarea id="m-notes" placeholder="Anything you want to remember for the exam"></textarea>
             <div class="actions">
@@ -487,6 +500,168 @@
           <p class="sub">Stored locally in this browser</p>
           <div id="nocturia-list"></div>
         </div>
+      </div>
+    </section>
+
+    <!-- MEDS -->
+    <section id="meds" class="panel">
+      <div class="grid-2">
+        <div class="card">
+          <h2 id="med-form-title">PTSD / related medication</h2>
+          <p class="sub">Track start dates and whether migraines or night voiding changed afterward (aggravation / side-effect evidence).</p>
+          <form id="med-form">
+            <input type="hidden" id="med-edit-id" value="" />
+            <div class="row">
+              <div>
+                <label for="med-name">Medication</label>
+                <input id="med-name" required placeholder="e.g. sertraline, prazosin" />
+              </div>
+              <div>
+                <label for="med-for">Prescribed for</label>
+                <input id="med-for" placeholder="PTSD / sleep / nightmares" />
+              </div>
+            </div>
+            <div class="row-3">
+              <div>
+                <label for="med-dose">Dose</label>
+                <input id="med-dose" placeholder="50mg nightly" />
+              </div>
+              <div>
+                <label for="med-start">Date started</label>
+                <input id="med-start" type="date" />
+              </div>
+              <div>
+                <label for="med-stop">Date stopped (if any)</label>
+                <input id="med-stop" type="date" />
+              </div>
+            </div>
+            <div class="row">
+              <div>
+                <label for="med-mig">Migraines after start?</label>
+                <select id="med-mig">
+                  <option>Unknown</option>
+                  <option>Worse</option>
+                  <option>New / started</option>
+                  <option>No change</option>
+                  <option>Better</option>
+                </select>
+              </div>
+              <div>
+                <label for="med-noc">Night urination after start?</label>
+                <select id="med-noc">
+                  <option>Unknown</option>
+                  <option>Worse</option>
+                  <option>New / started</option>
+                  <option>No change</option>
+                  <option>Better</option>
+                </select>
+              </div>
+            </div>
+            <label for="med-notes">Notes linking to secondary claim</label>
+            <textarea id="med-notes" placeholder="e.g. Within 2 weeks of starting, night voids increased to 4–5"></textarea>
+            <div class="actions">
+              <button class="btn" type="submit" id="med-submit">Save medication</button>
+              <button class="btn ghost" type="button" id="med-cancel-edit" hidden>Cancel edit</button>
+            </div>
+          </form>
+        </div>
+        <div class="card">
+          <h2>Medication timeline</h2>
+          <p class="sub">Use this with your personal statement and C&amp;P nexus discussion</p>
+          <div id="med-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLAIM PACKET -->
+    <section id="packet" class="panel stack">
+      <div class="card">
+        <h2>Your claim profile</h2>
+        <p class="sub">Used to auto-build statements and the C&amp;P one-pager. Saved in this browser.</p>
+        <div class="row">
+          <div>
+            <label for="p-name">Full name</label>
+            <input id="p-name" data-profile="name" placeholder="As on VA records" />
+          </div>
+          <div>
+            <label for="p-file">VA file number</label>
+            <input id="p-file" data-profile="file" placeholder="File # or SSN last 4 if used" />
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label for="p-ptsd">PTSD onset / rating period</label>
+            <input id="p-ptsd" data-profile="ptsdOnset" placeholder="e.g. diagnosed 2018; rated 70% in 2022" />
+          </div>
+          <div>
+            <label for="p-mig-onset">Migraines started / worsened</label>
+            <input id="p-mig-onset" data-profile="migOnset" placeholder="e.g. worsened 2020 during PTSD flares" />
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label for="p-noc-onset">Nocturia started / worsened</label>
+            <input id="p-noc-onset" data-profile="nocOnset" placeholder="e.g. after prazosin / poor sleep 2021" />
+          </div>
+          <div>
+            <label for="p-buddy">Buddy name / relationship</label>
+            <input id="p-buddy" data-profile="buddy" placeholder="e.g. Jane Doe, spouse" />
+          </div>
+        </div>
+        <div class="actions">
+          <button class="btn" type="button" id="save-profile">Save profile</button>
+          <button class="btn secondary" type="button" id="refresh-packet">Rebuild packet from logs</button>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h2>Log-powered scorecard</h2>
+          <p class="sub">Study aid from your entries — VA decides from the whole record</p>
+          <div id="packet-scorecard" class="empty">Add log entries, then Rebuild.</div>
+        </div>
+        <div class="card">
+          <h2>Evidence checklist</h2>
+          <p class="sub">Toggle as you complete each item</p>
+          <div id="evidence-checks" class="checks" style="flex-direction:column;align-items:flex-start"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Personal statement — migraines (auto-draft)</h2>
+        <p class="sub">Edit before uploading to VA.gov / Form 21-4138</p>
+        <textarea id="stmt-migraine" class="doc-export" style="max-height:none;min-height:220px;background:#0f1a2a"></textarea>
+        <div class="actions">
+          <button class="btn secondary" type="button" data-copy="stmt-migraine">Copy</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Personal statement — nocturia (auto-draft)</h2>
+        <textarea id="stmt-nocturia" class="doc-export" style="max-height:none;min-height:220px;background:#0f1a2a"></textarea>
+        <div class="actions">
+          <button class="btn secondary" type="button" data-copy="stmt-nocturia">Copy</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Buddy / lay statement (auto-draft)</h2>
+        <p class="sub">Have your witness put this on VA Form 21-10210 in their own words</p>
+        <textarea id="stmt-buddy" class="doc-export" style="max-height:none;min-height:200px;background:#0f1a2a"></textarea>
+        <div class="actions">
+          <button class="btn secondary" type="button" data-copy="stmt-buddy">Copy</button>
+        </div>
+      </div>
+
+      <div class="card" id="cp-brief-card">
+        <h2>C&amp;P exam one-pager</h2>
+        <p class="sub">Print this and upload the same text to your claim file before the exam</p>
+        <div id="cp-brief" class="callout" style="white-space:pre-wrap;font-family:var(--font);background:#fff;border:1px solid var(--line);color:var(--ink)"></div>
+        <div class="actions">
+          <button class="btn" type="button" id="print-cp-brief">Print C&amp;P one-pager</button>
+          <button class="btn secondary" type="button" data-copy="cp-brief-text">Copy</button>
+        </div>
+        <textarea id="cp-brief-text" hidden></textarea>
       </div>
     </section>
 
@@ -643,17 +818,41 @@
   <script>
     const STORE_KEY = "va-secondary-claim-tracker-v1";
 
+    const EVIDENCE_ITEMS = [
+      { id: "dxMig", label: "Migraine diagnosis in medical records" },
+      { id: "dxNoc", label: "Nocturia / urinary frequency in medical records" },
+      { id: "ptsdLetter", label: "PTSD 70% rating decision letter available" },
+      { id: "logsUploaded", label: "Occurrence logs uploaded to VA.gov claim file" },
+      { id: "stmtMig", label: "Personal statement — migraines uploaded" },
+      { id: "stmtNoc", label: "Personal statement — nocturia uploaded" },
+      { id: "buddy", label: "Buddy / lay statement (21-10210) uploaded" },
+      { id: "nexus", label: "Nexus opinion addressing cause AND aggravation (optional but strong)" },
+      { id: "medList", label: "PTSD medication list with start dates uploaded" },
+      { id: "cpPrep", label: "C&P one-pager printed + uploaded before exam" },
+    ];
+
     const defaultState = () => ({
       migraines: [],
       nocturia: [],
+      medications: [],
       cp: {},
+      profile: {},
+      evidence: {},
     });
 
     function load() {
       try {
         const raw = localStorage.getItem(STORE_KEY);
         if (!raw) return defaultState();
-        return { ...defaultState(), ...JSON.parse(raw) };
+        const parsed = JSON.parse(raw);
+        return {
+          ...defaultState(),
+          ...parsed,
+          medications: Array.isArray(parsed.medications) ? parsed.medications : [],
+          profile: parsed.profile && typeof parsed.profile === "object" ? parsed.profile : {},
+          evidence: parsed.evidence && typeof parsed.evidence === "object" ? parsed.evidence : {},
+          cp: parsed.cp && typeof parsed.cp === "object" ? parsed.cp : {},
+        };
       } catch {
         return defaultState();
       }
@@ -691,6 +890,8 @@
         document.getElementById(btn.dataset.tab).classList.add("active");
         if (btn.dataset.tab === "export") refreshSummary();
         if (btn.dataset.tab === "dashboard") refreshDashboard();
+        if (btn.dataset.tab === "meds") renderMeds();
+        if (btn.dataset.tab === "packet") rebuildPacket();
       });
     });
 
@@ -703,6 +904,9 @@
       document.getElementById("m-complete").value = "N";
       document.getElementById("m-relief").value = "Partial";
       document.getElementById("m-work").value = "Y";
+      document.getElementById("m-left-early").value = "N";
+      document.getElementById("m-hours").value = "";
+      document.getElementById("m-stopped").value = "";
       document.getElementById("migraine-form-title").textContent = "Log a migraine";
       document.getElementById("migraine-form-sub").textContent = "Capture what DC 8100 and the Headaches DBQ care about";
       document.getElementById("migraine-submit").textContent = "Save migraine";
@@ -746,6 +950,9 @@
       document.getElementById("m-med").value = m.med || "";
       document.getElementById("m-relief").value = m.relief || "Partial";
       document.getElementById("m-work").value = m.work || "Y";
+      document.getElementById("m-hours").value = m.hoursMissed || "";
+      document.getElementById("m-left-early").value = m.leftEarly || "N";
+      document.getElementById("m-stopped").value = m.stopped || "";
       document.getElementById("m-impact").value = m.impact || "";
       document.getElementById("m-notes").value = m.notes || "";
       document.getElementById("migraine-form-title").textContent = "Edit migraine";
@@ -795,6 +1002,9 @@
         med: document.getElementById("m-med").value,
         relief: document.getElementById("m-relief").value,
         work: document.getElementById("m-work").value,
+        hoursMissed: document.getElementById("m-hours").value,
+        leftEarly: document.getElementById("m-left-early").value,
+        stopped: document.getElementById("m-stopped").value,
         impact: document.getElementById("m-impact").value,
         notes: document.getElementById("m-notes").value,
       };
@@ -883,7 +1093,7 @@
         <td><span class="tag ${m.prostrating === "Y" ? "yes" : ""}">${m.prostrating === "Y" ? "Yes" : "No"}</span>
           ${m.completely === "Y" ? '<div class="tag yes" style="margin-top:4px">Complete+prolonged</div>' : ""}
         </td>
-        <td>${escapeHtml(m.impact || m.notes || "—")}</td>
+        <td>${escapeHtml(m.stopped || m.impact || m.notes || "—")}${m.hoursMissed ? `<div class="muted">${escapeHtml(String(m.hoursMissed))}h work missed</div>` : ""}</td>
         <td style="white-space:nowrap">
           <button class="btn ghost" type="button" data-edit-m="${m.id}">Edit</button>
           <button class="btn ghost" type="button" data-del-m="${m.id}">Delete</button>
@@ -953,15 +1163,16 @@
       const complete = m.filter((x) => x.completely === "Y");
       const completePerMo = m.length ? complete.length / months : 0;
       const workHits = m.filter((x) => x.work === "Y").length;
+      const hoursMissed = m.reduce((sum, x) => sum + (Number(x.hoursMissed) || 0), 0);
       let hint = "Need data";
       let note = "Log several months for a stable picture";
       if (m.length) {
         if (completePerMo >= 2 && workHits >= 3) {
           hint = "Discuss 50%";
-          note = "Very frequent complete+prolonged + work impact — compare carefully to DC 8100";
+          note = `Very frequent complete+prolonged + work impact (~${hoursMissed}h missed in log)`;
         } else if (perMo >= 1) {
           hint = "Discuss 30%";
-          note = "About ≥1 prostrating attack/month over last several months";
+          note = `About ≥1 prostrating/month; ~${hoursMissed}h work missed in log`;
         } else if (perMo >= 0.5) {
           hint = "Discuss 10%";
           note = "About 1 prostrating attack every 2 months";
@@ -1019,11 +1230,13 @@
         "Date","Start Time","End Time","Duration (hours)","Severity (1-10)",
         "Prostrating (Y/N)","Completely Prostrating & Prolonged (Y/N)","Location of Pain",
         "Symptoms","Triggers / PTSD Link Notes","Medication Taken","Relief",
-        "Missed Work or Activities (Y/N)","Work/Life Impact Details","Notes for C&P"
+        "Stopped Ordinary Activity","Missed Work (Y/N)","Hours Work Missed","Left Early (Y/N)",
+        "Work/Life Impact Details","Notes for C&P"
       ];
       const rows = state.migraines.map((m) => [
         m.date, m.start, m.end, m.duration, m.severity, m.prostrating, m.completely,
-        m.location, m.symptoms, m.ptsd, m.med, m.relief, m.work, m.impact, m.notes
+        m.location, m.symptoms, m.ptsd, m.med, m.relief, m.stopped, m.work,
+        m.hoursMissed, m.leftEarly, m.impact, m.notes
       ]);
       downloadCsv("migraine-occurrence-log.csv", headers, rows);
       toast("Migraine CSV downloaded");
@@ -1077,6 +1290,7 @@ Legal basis: 38 CFR § 3.310 (cause and/or aggravation)
 Entries logged: ${m.length}
 Prostrating attacks logged: ${prost}
 Completely prostrating & prolonged: ${complete}
+Work hours missed (log): ${m.reduce((s, x) => s + (Number(x.hoursMissed) || 0), 0)}
 C&P — timeline: ${state.cp.mTimeline || ""}
 C&P — frequency: ${state.cp.mFreq || ""}
 C&P — what I stop doing: ${state.cp.mStop || ""}
@@ -1087,6 +1301,9 @@ Nights logged: ${n.length}
 Average awakenings to void: ${avgN}
 C&P — typical count: ${state.cp.nCount || ""}
 C&P — PTSD/meds link: ${state.cp.nLink || ""}
+
+=== MEDICATIONS ===
+${(state.medications || []).map((x) => `${x.start || "?"} ${x.name || ""} mig:${x.migChange || "?"} noc:${x.nocChange || "?"}`).join("\n") || "(none)"}
 
 === NEXUS TALKING POINTS ===
 ${state.cp.nexus || ""}
@@ -1155,10 +1372,350 @@ Generated for personal claim organization. Not legal advice.
     function refreshAllViews() {
       renderMigraines();
       renderNocturia();
+      renderMeds();
       loadCp();
+      loadProfile();
+      renderEvidenceChecks();
       refreshDashboard();
       refreshSummary();
+      rebuildPacket();
     }
+
+    function loadProfile() {
+      document.querySelectorAll("[data-profile]").forEach((el) => {
+        el.value = (state.profile && state.profile[el.dataset.profile]) || "";
+      });
+    }
+
+    function saveProfileFromForm() {
+      state.profile = state.profile || {};
+      document.querySelectorAll("[data-profile]").forEach((el) => {
+        state.profile[el.dataset.profile] = el.value;
+      });
+      save(state);
+    }
+
+    function renderEvidenceChecks() {
+      const host = document.getElementById("evidence-checks");
+      if (!host) return;
+      state.evidence = state.evidence || {};
+      host.innerHTML = EVIDENCE_ITEMS.map((item) => `
+        <label><input type="checkbox" data-ev="${item.id}" ${state.evidence[item.id] ? "checked" : ""} /> ${escapeHtml(item.label)}</label>
+      `).join("");
+      host.querySelectorAll("[data-ev]").forEach((box) => {
+        box.addEventListener("change", () => {
+          state.evidence[box.getAttribute("data-ev")] = box.checked;
+          save(state);
+        });
+      });
+    }
+
+    function resetMedForm() {
+      document.getElementById("med-form").reset();
+      document.getElementById("med-edit-id").value = "";
+      document.getElementById("med-mig").value = "Unknown";
+      document.getElementById("med-noc").value = "Unknown";
+      document.getElementById("med-form-title").textContent = "PTSD / related medication";
+      document.getElementById("med-submit").textContent = "Save medication";
+      document.getElementById("med-cancel-edit").hidden = true;
+    }
+
+    function beginEditMed(id) {
+      const m = state.medications.find((x) => x.id === id);
+      if (!m) return;
+      document.getElementById("med-edit-id").value = m.id;
+      document.getElementById("med-name").value = m.name || "";
+      document.getElementById("med-for").value = m.for || "";
+      document.getElementById("med-dose").value = m.dose || "";
+      document.getElementById("med-start").value = m.start || "";
+      document.getElementById("med-stop").value = m.stop || "";
+      document.getElementById("med-mig").value = m.migChange || "Unknown";
+      document.getElementById("med-noc").value = m.nocChange || "Unknown";
+      document.getElementById("med-notes").value = m.notes || "";
+      document.getElementById("med-form-title").textContent = "Edit medication";
+      document.getElementById("med-submit").textContent = "Update medication";
+      document.getElementById("med-cancel-edit").hidden = false;
+    }
+
+    function renderMeds() {
+      const el = document.getElementById("med-list");
+      if (!el) return;
+      if (!state.medications.length) {
+        el.innerHTML = '<p class="empty">No medications logged yet. Add PTSD meds with start dates.</p>';
+        return;
+      }
+      const sorted = [...state.medications].sort((a, b) => String(a.start || "").localeCompare(String(b.start || "")));
+      el.innerHTML = `<table class="data"><thead><tr>
+        <th>Started</th><th>Med</th><th>Migraines</th><th>Nocturia</th><th></th>
+      </tr></thead><tbody>
+      ${sorted.map((m) => `<tr>
+        <td>${escapeHtml(m.start || "—")}${m.stop ? `<div class="muted">to ${escapeHtml(m.stop)}</div>` : ""}</td>
+        <td><strong>${escapeHtml(m.name || "")}</strong><div class="muted">${escapeHtml(m.dose || "")} ${escapeHtml(m.for || "")}</div></td>
+        <td>${escapeHtml(m.migChange || "—")}</td>
+        <td>${escapeHtml(m.nocChange || "—")}</td>
+        <td style="white-space:nowrap">
+          <button class="btn ghost" type="button" data-edit-med="${m.id}">Edit</button>
+          <button class="btn ghost" type="button" data-del-med="${m.id}">Delete</button>
+        </td>
+      </tr>`).join("")}
+      </tbody></table>`;
+      el.querySelectorAll("[data-edit-med]").forEach((b) =>
+        b.addEventListener("click", () => beginEditMed(b.getAttribute("data-edit-med")))
+      );
+      el.querySelectorAll("[data-del-med]").forEach((b) =>
+        b.addEventListener("click", () => {
+          state.medications = state.medications.filter((m) => m.id !== b.getAttribute("data-del-med"));
+          save(state);
+          renderMeds();
+        })
+      );
+    }
+
+    document.getElementById("med-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const editId = document.getElementById("med-edit-id").value;
+      const entry = {
+        id: editId || crypto.randomUUID(),
+        name: document.getElementById("med-name").value,
+        for: document.getElementById("med-for").value,
+        dose: document.getElementById("med-dose").value,
+        start: document.getElementById("med-start").value,
+        stop: document.getElementById("med-stop").value,
+        migChange: document.getElementById("med-mig").value,
+        nocChange: document.getElementById("med-noc").value,
+        notes: document.getElementById("med-notes").value,
+      };
+      if (editId) {
+        const idx = state.medications.findIndex((m) => m.id === editId);
+        if (idx >= 0) state.medications[idx] = entry;
+        else state.medications.unshift(entry);
+        toast("Medication updated");
+      } else {
+        state.medications.unshift(entry);
+        toast("Medication saved");
+      }
+      save(state);
+      resetMedForm();
+      renderMeds();
+    });
+    document.getElementById("med-cancel-edit").addEventListener("click", () => {
+      resetMedForm();
+      toast("Edit cancelled");
+    });
+
+    function claimStats() {
+      const m = state.migraines;
+      const n = state.nocturia;
+      const months = monthsCovered(m.map((x) => x.date));
+      const prost = m.filter((x) => x.prostrating === "Y");
+      const complete = m.filter((x) => x.completely === "Y");
+      const workHits = m.filter((x) => x.work === "Y");
+      const leftEarly = m.filter((x) => x.leftEarly === "Y");
+      const hours = m.reduce((s, x) => s + (Number(x.hoursMissed) || 0), 0);
+      const perMo = m.length ? prost.length / Math.max(1, months) : 0;
+      const completePerMo = m.length ? complete.length / Math.max(1, months) : 0;
+      const avgN = n.length ? n.reduce((s, x) => s + Number(x.total || 0), 0) / n.length : 0;
+      let migLens = "Need more log data";
+      if (m.length) {
+        if (completePerMo >= 2 && workHits.length >= 3) migLens = "Discuss 50% (very frequent complete+prolonged + work impact)";
+        else if (perMo >= 1) migLens = "Discuss 30% (≥1 characteristic prostrating attack/month)";
+        else if (perMo >= 0.5) migLens = "Discuss 10% (~1 prostrating attack every 2 months)";
+        else migLens = "Discuss 0–10% on current frequency";
+      }
+      let nocLens = "Need more log data";
+      if (n.length) {
+        if (avgN >= 5) nocLens = "Discuss 40% (avg ≥5 awakenings to void / night)";
+        else if (avgN >= 3) nocLens = "Discuss 20% (avg 3–4 / night)";
+        else if (avgN >= 2) nocLens = "Discuss 10% (avg ~2 / night)";
+        else nocLens = "Below 10% night-void lens on current average";
+      }
+      const datesM = m.map((x) => x.date).filter(Boolean).sort();
+      const datesN = n.map((x) => x.date).filter(Boolean).sort();
+      return {
+        mCount: m.length,
+        nCount: n.length,
+        months,
+        prost: prost.length,
+        complete: complete.length,
+        perMo,
+        completePerMo,
+        workHits: workHits.length,
+        leftEarly: leftEarly.length,
+        hours,
+        avgN,
+        migLens,
+        nocLens,
+        rangeM: datesM.length ? `${datesM[0]} to ${datesM[datesM.length - 1]}` : "n/a",
+        rangeN: datesN.length ? `${datesN[0]} to ${datesN[datesN.length - 1]}` : "n/a",
+        examplesStopped: m.filter((x) => x.stopped || x.impact).slice(0, 5),
+        meds: state.medications || [],
+      };
+    }
+
+    function rebuildPacket() {
+      saveProfileFromForm();
+      const p = state.profile || {};
+      const s = claimStats();
+      const name = p.name || "[FULL NAME]";
+      const file = p.file || "[FILE #]";
+      const ptsd = p.ptsdOnset || "[PTSD onset / rating period]";
+      const migOnset = p.migOnset || "[when migraines started/worsened relative to PTSD]";
+      const nocOnset = p.nocOnset || "[when nocturia started/worsened relative to PTSD]";
+      const buddy = p.buddy || "[Name], [relationship]";
+
+      const score = document.getElementById("packet-scorecard");
+      if (score) {
+        score.className = "";
+        score.innerHTML = `
+          <p><strong>Migraines:</strong> ${s.mCount} logged (${s.rangeM}). Prostrating ${s.prost}; completely prostrating+prolonged ${s.complete}. ~${s.perMo.toFixed(1)} prostrating/month over ${s.months} mo. Work-impact days ${s.workHits}; left early ${s.leftEarly}; ~${s.hours} work hours missed. <em>${escapeHtml(s.migLens)}</em></p>
+          <p><strong>Nocturia:</strong> ${s.nCount} nights (${s.rangeN}). Avg awakenings to void ${s.nCount ? s.avgN.toFixed(1) : "—"}. <em>${escapeHtml(s.nocLens)}</em></p>
+          <p><strong>Medications logged:</strong> ${s.meds.length}</p>`;
+      }
+
+      const medLines = s.meds.length
+        ? s.meds.map((m) => `- ${m.name || "med"} ${m.dose || ""} started ${m.start || "?"} (migraines: ${m.migChange || "?"}; nocturia: ${m.nocChange || "?"})${m.notes ? " — " + m.notes : ""}`).join("\n")
+        : "- [Add medications on Meds timeline tab]";
+
+      const stopExamples = s.examplesStopped.length
+        ? s.examplesStopped.map((x) => `- ${x.date}: ${x.stopped || x.impact || ""}${x.hoursMissed ? ` (${x.hoursMissed}h work missed)` : ""}`).join("\n")
+        : "- [Log what you had to stop doing during attacks]";
+
+      const stmtMig = `STATEMENT IN SUPPORT OF CLAIM
+Re: Migraines secondary to service-connected PTSD
+
+My name is ${name}, VA file number ${file}.
+
+I am service-connected for PTSD at 70% (${ptsd}). I claim migraines as secondary to PTSD under 38 CFR § 3.310 on a causation and/or aggravation basis.
+
+1) CURRENT DISABILITY
+I have current migraine disability. My occurrence log covers ${s.rangeM} (${s.mCount} entries).
+
+2) TIMELINE WITH PTSD
+Migraines started/worsened: ${migOnset}. When PTSD symptoms increase (hyperarousal, nightmares, poor sleep, anxiety), my migraines start or worsen.
+
+3) FREQUENCY AND PROSTRATING NATURE
+Over the logged period (~${s.months} month(s)), I recorded ${s.prost} characteristic prostrating attack(s) (~${s.perMo.toFixed(1)} per month) and ${s.complete} completely prostrating and prolonged attack(s).
+During attacks I must stop ordinary activities. Examples from my log:
+${stopExamples}
+
+4) ECONOMIC / FUNCTIONAL IMPACT
+Work/activity impact entries: ${s.workHits}. Left early / duties cut: ${s.leftEarly}. Approximate work hours missed in log: ${s.hours}.
+Rating lens from my log (study aid): ${s.migLens}.
+
+5) MEDICATIONS / AGGRAVATION NOTES
+${medLines}
+
+6) REQUEST
+I request service connection for migraines secondary to PTSD and evaluation under 38 CFR § 4.124a, Diagnostic Code 8100, based on the frequency, prostrating nature, and functional impact shown in my evidence. Please also consider aggravation if causation is disputed.
+
+Signed: ____________________  Date: __________`;
+
+      const stmtNoc = `STATEMENT IN SUPPORT OF CLAIM
+Re: Urinary frequency / nocturia secondary to service-connected PTSD
+
+My name is ${name}, VA file number ${file}.
+
+I am service-connected for PTSD at 70% (${ptsd}). I claim urinary frequency (nocturia / awakening to void) as secondary to PTSD under 38 CFR § 3.310 on a causation and/or aggravation basis.
+
+1) CURRENT DISABILITY
+I awaken to void on average ${s.nCount ? s.avgN.toFixed(1) : "[#]"} times per night over my logged period (${s.rangeN}; ${s.nCount} nights).
+
+2) TIMELINE WITH PTSD
+This pattern started/worsened: ${nocOnset}. PTSD-related sleep fragmentation, nightmares, hyperarousal, and/or medications contribute.
+
+3) FUNCTIONAL IMPACT
+Night waking worsens next-day fatigue, irritability, concentration, and PTSD symptoms. Rating lens from my log (study aid): ${s.nocLens}.
+
+4) MEDICATIONS / AGGRAVATION NOTES
+${medLines}
+
+5) REQUEST
+I request service connection for urinary frequency / nocturia secondary to PTSD and evaluation under 38 CFR § 4.115a based on my night awakening frequency.
+
+Signed: ____________________  Date: __________`;
+
+      const stmtBuddy = `LAY / BUDDY STATEMENT (for VA Form 21-10210)
+I am ${buddy} to the Veteran ${name}.
+
+Over approximately the period reflected in the Veteran's logs (${s.rangeM} for headaches; ${s.rangeN} for night waking), I have personally observed:
+
+MIGRAINES: I have seen the Veteran stop ordinary activities during headache attacks (for example going to a dark quiet room, leaving work/activities, or being unable to continue normal tasks). The Veteran has logged about ${s.prost} prostrating attacks and ${s.workHits} work/activity-impact days in that period.
+
+NOCTURIA / SLEEP: I am aware the Veteran wakes multiple times at night to urinate (log average about ${s.nCount ? s.avgN.toFixed(1) : "[#]"} times per night). This disrupts sleep and next-day function.
+
+PTSD LINK: When the Veteran's PTSD symptoms are worse (nightmares, anxiety, poor sleep), I notice more headaches and/or more night waking.
+
+I certify this statement is true to the best of my knowledge.
+Signature / date / phone: __________`;
+
+      const brief = `C&P EXAM ONE-PAGER — BRING + UPLOAD TO CLAIM FILE
+Veteran: ${name} | File: ${file}
+Primary SC: PTSD 70% (${ptsd})
+Claims: Migraines secondary to PTSD; Urinary frequency/nocturia secondary to PTSD
+Legal basis: 38 CFR § 3.310 (cause AND/OR aggravation)
+
+MIGRAINES (DC 8100)
+• Log range: ${s.rangeM} (${s.mCount} entries)
+• Prostrating: ${s.prost} (~${s.perMo.toFixed(1)}/mo over ${s.months} mo)
+• Completely prostrating + prolonged: ${s.complete}
+• Work impact days: ${s.workHits} | Left early: ${s.leftEarly} | Hours missed ~${s.hours}
+• Study-aid lens: ${s.migLens}
+• Onset vs PTSD: ${migOnset}
+• What I stop doing (examples):
+${stopExamples}
+
+NOCTURIA / URINARY FREQUENCY (§ 4.115a)
+• Log range: ${s.rangeN} (${s.nCount} nights)
+• Average awakenings to void/night: ${s.nCount ? s.avgN.toFixed(1) : "—"}
+• Study-aid lens: ${s.nocLens}
+• Onset vs PTSD: ${nocOnset}
+
+MEDICATIONS
+${medLines}
+
+NEXUS ASK FOR EXAMINER
+Please opine whether each condition is at least as likely as not (1) caused by PTSD and/or (2) aggravated by PTSD. An opinion that only addresses causation is incomplete.
+
+NOTE: I feel [fine / symptomatic] today; typical bad days are described in the log above.
+Not legal advice — personal exam aid.`;
+
+      document.getElementById("stmt-migraine").value = stmtMig;
+      document.getElementById("stmt-nocturia").value = stmtNoc;
+      document.getElementById("stmt-buddy").value = stmtBuddy;
+      document.getElementById("cp-brief").textContent = brief;
+      document.getElementById("cp-brief-text").value = brief;
+    }
+
+    document.getElementById("save-profile").addEventListener("click", () => {
+      saveProfileFromForm();
+      rebuildPacket();
+      toast("Profile saved");
+    });
+    document.getElementById("refresh-packet").addEventListener("click", () => {
+      rebuildPacket();
+      toast("Packet rebuilt from logs");
+    });
+    document.getElementById("print-cp-brief").addEventListener("click", () => {
+      rebuildPacket();
+      const w = window.open("", "_blank");
+      w.document.write(`<pre style="font-family:Arial,sans-serif;white-space:pre-wrap;padding:24px;line-height:1.4">${escapeHtml(document.getElementById("cp-brief-text").value)}</pre>`);
+      w.document.close();
+      w.focus();
+      w.print();
+    });
+    document.querySelectorAll("[data-copy]").forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        const id = btn.getAttribute("data-copy");
+        const el = document.getElementById(id);
+        const text = el.tagName === "TEXTAREA" || el.tagName === "INPUT" ? el.value : el.textContent;
+        try {
+          await navigator.clipboard.writeText(text);
+          toast("Copied");
+        } catch {
+          toast("Select the text and copy manually");
+        }
+      });
+    });
 
     document.getElementById("export-backup").addEventListener("click", () => {
       const payload = {
@@ -1189,12 +1746,15 @@ Generated for personal claim organization. Not legal advice.
         const next = {
           migraines: Array.isArray(incoming.migraines) ? incoming.migraines : [],
           nocturia: Array.isArray(incoming.nocturia) ? incoming.nocturia : [],
+          medications: Array.isArray(incoming.medications) ? incoming.medications : [],
           cp: incoming.cp && typeof incoming.cp === "object" ? incoming.cp : {},
+          profile: incoming.profile && typeof incoming.profile === "object" ? incoming.profile : {},
+          evidence: incoming.evidence && typeof incoming.evidence === "object" ? incoming.evidence : {},
         };
-        if (!confirm(`Import backup with ${next.migraines.length} migraine(s) and ${next.nocturia.length} night(s)? This replaces data in this browser.`)) {
+        if (!confirm(`Import backup with ${next.migraines.length} migraine(s), ${next.nocturia.length} night(s), ${next.medications.length} med(s)? This replaces data in this browser.`)) {
           return;
         }
-        state = next;
+        state = { ...defaultState(), ...next };
         save(state);
         refreshAllViews();
         toast("Backup imported");
@@ -1215,14 +1775,24 @@ Generated for personal claim organization. Not legal advice.
     // Init
     renderMigraines();
     renderNocturia();
+    renderMeds();
     loadCp();
+    loadProfile();
+    renderEvidenceChecks();
     refreshDashboard();
     refreshSummary();
 
-    // Autosave C&P fields lightly
+    // Autosave C&P + profile fields
     document.querySelectorAll("[data-cp]").forEach((el) => {
       el.addEventListener("change", () => {
         state.cp[el.dataset.cp] = el.value;
+        save(state);
+      });
+    });
+    document.querySelectorAll("[data-profile]").forEach((el) => {
+      el.addEventListener("change", () => {
+        state.profile = state.profile || {};
+        state.profile[el.dataset.profile] = el.value;
         save(state);
       });
     });
