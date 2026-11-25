@@ -1,0 +1,1000 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: https://many-teams-itch.loca.lt/
+Subject: =?utf-8?Q?VA=20Secondary=20Claim=20Tracker=20=E2=80=94=20PTSD?=
+Date: Wed, 25 Nov 2026 12:00:16 GMT
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--gZpgycFycxJ6myJGLN73ozgfvRAOxLqVWFBzUM9TVw----"
+
+
+------MultipartBoundary--gZpgycFycxJ6myJGLN73ozgfvRAOxLqVWFBzUM9TVw----
+Content-Type: text/html
+Content-ID: <frame-5F33DE92520F5198807FE71134C71C4B@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://many-teams-itch.loca.lt/
+
+<!DOCTYPE html><html lang=3D"en"><head><meta http-equiv=3D"Content-Type" co=
+ntent=3D"text/html; charset=3DUTF-8"><link rel=3D"stylesheet" type=3D"text/=
+css" href=3D"cid:css-624cb12b-725e-401c-af35-a5647bfd12eb@mhtml.blink" />
+ =20
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1">
+  <title>VA Secondary Claim Tracker =E2=80=94 PTSD</title>
+  <link rel=3D"preconnect" href=3D"https://fonts.googleapis.com/">
+  <link rel=3D"preconnect" href=3D"https://fonts.gstatic.com/" crossorigin=
+=3D"">
+  <link href=3D"https://fonts.googleapis.com/css2?family=3DIBM+Plex+Sans:wg=
+ht@400;500;600;700&amp;family=3DIBM+Plex+Serif:wght@500;600&amp;display=3Ds=
+wap" rel=3D"stylesheet">
+ =20
+</head>
+<body>
+  <header class=3D"app-header">
+    <div class=3D"wrap">
+      <h1>VA Secondary Claim Tracker</h1>
+      <p>Track migraines and night-time urination secondary to PTSD (70%), =
+keep CFR criteria handy, and prepare for your C&amp;P exams =E2=80=94 then =
+export to Google Sheets and Docs.</p>
+      <div class=3D"badge-row">
+        <span class=3D"badge">Primary: PTSD 70%</span>
+        <span class=3D"badge">Secondary: Migraines (DC 8100)</span>
+        <span class=3D"badge">Secondary: Urinary frequency / nocturia (=C2=
+=A7 4.115a)</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class=3D"tabs" aria-label=3D"Sections">
+    <div class=3D"wrap">
+      <button type=3D"button" data-tab=3D"dashboard" aria-selected=3D"true"=
+>Dashboard</button>
+      <button type=3D"button" data-tab=3D"migraines">Migraine log</button>
+      <button type=3D"button" data-tab=3D"nocturia">Nocturia log</button>
+      <button type=3D"button" data-tab=3D"cfr">CFR reference</button>
+      <button type=3D"button" data-tab=3D"cp">C&amp;P prep</button>
+      <button type=3D"button" data-tab=3D"export">Google export</button>
+    </div>
+  </nav>
+
+  <main class=3D"wrap">
+    <!-- DASHBOARD -->
+    <section id=3D"dashboard" class=3D"panel active">
+      <div class=3D"callout warn">
+        <strong>Not legal advice.</strong> This is a personal evidence orga=
+nizer for self-filing under 38 CFR =C2=A7 3.310. Verify current rules on eC=
+FR / VA.gov. Upload evidence to your claim file =E2=80=94 do not rely on th=
+e examiner to submit your logs.
+      </div>
+      <div class=3D"grid-2">
+        <div class=3D"card">
+          <h2>Migraine snapshot</h2>
+          <p class=3D"sub">Based on entries stored in this browser</p>
+          <div class=3D"stat-grid">
+            <div class=3D"stat">
+              <div class=3D"k">Attacks logged</div>
+              <div class=3D"v" id=3D"m-count">0</div>
+            </div>
+            <div class=3D"stat">
+              <div class=3D"k">Prostrating / mo</div>
+              <div class=3D"v" id=3D"m-prost-mo">=E2=80=94</div>
+              <div class=3D"h">avg over last several months</div>
+            </div>
+            <div class=3D"stat navy">
+              <div class=3D"k">Suggested DC 8100 lens</div>
+              <div class=3D"v" id=3D"m-rating-hint" style=3D"font-size:1.1r=
+em">Need data</div>
+              <div class=3D"h" id=3D"m-rating-note">Log several months for =
+a stable picture</div>
+            </div>
+          </div>
+          <p class=3D"muted" style=3D"font-size:0.88rem;margin:0">Hint is a=
+ study aid from your log averages =E2=80=94 VA decides the rating from the =
+whole record.</p>
+        </div>
+        <div class=3D"card">
+          <h2>Nocturia snapshot</h2>
+          <p class=3D"sub">Night awakenings to void</p>
+          <div class=3D"stat-grid">
+            <div class=3D"stat">
+              <div class=3D"k">Nights logged</div>
+              <div class=3D"v" id=3D"n-count">0</div>
+            </div>
+            <div class=3D"stat">
+              <div class=3D"k">Avg wake-to-void</div>
+              <div class=3D"v" id=3D"n-avg">=E2=80=94</div>
+            </div>
+            <div class=3D"stat navy">
+              <div class=3D"k">=C2=A7 4.115a lens</div>
+              <div class=3D"v" id=3D"n-rating-hint" style=3D"font-size:1.1r=
+em">Need data</div>
+              <div class=3D"h" id=3D"n-rating-note">2 =E2=86=92 10%; 3=E2=
+=80=934 =E2=86=92 20%; 5+ =E2=86=92 40%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class=3D"card" style=3D"margin-top:16px">
+        <h2>Self-filing roadmap</h2>
+        <p class=3D"sub">Keep this next to your Google Docs checklist</p>
+        <ol>
+          <li>Log migraines and night voids consistently (aim for several m=
+onths).</li>
+          <li>Get diagnoses into medical records if not already there.</li>
+          <li>Write personal statements (templates in <code>docs/04</code>)=
+.</li>
+          <li>Collect buddy statements; optionally request a nexus letter a=
+ddressing cause <em>and</em> aggravation.</li>
+          <li>File on VA.gov as secondary to PTSD; upload logs + statements=
+.</li>
+          <li>Use C&amp;P prep tab before exams; bring printed exports.</li=
+>
+        </ol>
+      </div>
+    </section>
+
+    <!-- MIGRAINES -->
+    <section id=3D"migraines" class=3D"panel">
+      <div class=3D"grid-2">
+        <div class=3D"card">
+          <h2>Log a migraine</h2>
+          <p class=3D"sub">Capture what DC 8100 and the Headaches DBQ care =
+about</p>
+          <form id=3D"migraine-form">
+            <div class=3D"row">
+              <div>
+                <label for=3D"m-date">Date</label>
+                <input id=3D"m-date" type=3D"date" required=3D"">
+              </div>
+              <div>
+                <label for=3D"m-severity">Severity (1=E2=80=9310)</label>
+                <input id=3D"m-severity" type=3D"number" min=3D"1" max=3D"1=
+0" value=3D"7" required=3D"">
+              </div>
+            </div>
+            <div class=3D"row">
+              <div>
+                <label for=3D"m-start">Start time</label>
+                <input id=3D"m-start" type=3D"time">
+              </div>
+              <div>
+                <label for=3D"m-end">End time</label>
+                <input id=3D"m-end" type=3D"time">
+              </div>
+            </div>
+            <div class=3D"row">
+              <div>
+                <label for=3D"m-duration">Duration (hours)</label>
+                <input id=3D"m-duration" type=3D"number" min=3D"0" step=3D"=
+0.25" placeholder=3D"e.g. 6">
+              </div>
+              <div>
+                <label for=3D"m-location">Pain location</label>
+                <select id=3D"m-location">
+                  <option>Left side</option>
+                  <option>Right side</option>
+                  <option>Both sides</option>
+                  <option>Other / varies</option>
+                </select>
+              </div>
+            </div>
+            <label>Associated symptoms</label>
+            <div class=3D"checks">
+              <label><input type=3D"checkbox" name=3D"msym" value=3D"Nausea=
+"> Nausea</label>
+              <label><input type=3D"checkbox" name=3D"msym" value=3D"Vomiti=
+ng"> Vomiting</label>
+              <label><input type=3D"checkbox" name=3D"msym" value=3D"Light =
+sensitivity"> Light</label>
+              <label><input type=3D"checkbox" name=3D"msym" value=3D"Sound =
+sensitivity"> Sound</label>
+              <label><input type=3D"checkbox" name=3D"msym" value=3D"Vision=
+ changes"> Vision</label>
+            </div>
+            <div class=3D"row">
+              <div>
+                <label for=3D"m-prost">Characteristic prostrating?</label>
+                <select id=3D"m-prost">
+                  <option value=3D"Y">Yes =E2=80=94 stopped ordinary activi=
+ty</option>
+                  <option value=3D"N">No</option>
+                </select>
+              </div>
+              <div>
+                <label for=3D"m-complete">Completely prostrating &amp; prol=
+onged?</label>
+                <select id=3D"m-complete">
+                  <option value=3D"N">No</option>
+                  <option value=3D"Y">Yes</option>
+                </select>
+              </div>
+            </div>
+            <label for=3D"m-ptsd">PTSD / trigger notes</label>
+            <textarea id=3D"m-ptsd" placeholder=3D"e.g. After nightmare; hi=
+gh anxiety day; poor sleep"></textarea>
+            <div class=3D"row">
+              <div>
+                <label for=3D"m-med">Medication taken</label>
+                <input id=3D"m-med" placeholder=3D"e.g. sumatriptan 50mg">
+              </div>
+              <div>
+                <label for=3D"m-relief">Relief</label>
+                <select id=3D"m-relief">
+                  <option>None</option>
+                  <option>Partial</option>
+                  <option>Full</option>
+                </select>
+              </div>
+            </div>
+            <div class=3D"row">
+              <div>
+                <label for=3D"m-work">Missed work / activities?</label>
+                <select id=3D"m-work">
+                  <option value=3D"Y">Yes</option>
+                  <option value=3D"N">No</option>
+                </select>
+              </div>
+              <div>
+                <label for=3D"m-impact">Work / life impact</label>
+                <input id=3D"m-impact" placeholder=3D"Left work early; dark=
+ room 4 hrs">
+              </div>
+            </div>
+            <label for=3D"m-notes">Notes for C&amp;P</label>
+            <textarea id=3D"m-notes" placeholder=3D"Anything you want to re=
+member for the exam"></textarea>
+            <div class=3D"actions">
+              <button class=3D"btn" type=3D"submit">Save migraine</button>
+              <button class=3D"btn secondary" type=3D"button" id=3D"export-=
+migraines">Export CSV for Sheets</button>
+            </div>
+          </form>
+        </div>
+        <div class=3D"card">
+          <h2>Recent migraine entries</h2>
+          <p class=3D"sub">Stored locally in this browser</p>
+          <div id=3D"migraine-list"><p class=3D"empty">No migraine entries =
+yet. Log your next attack after it settles.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOCTURIA -->
+    <section id=3D"nocturia" class=3D"panel">
+      <div class=3D"grid-2">
+        <div class=3D"card">
+          <h2>Log a night</h2>
+          <p class=3D"sub">Count awakenings to void =E2=80=94 the =C2=A7 4.=
+115a key number</p>
+          <form id=3D"nocturia-form">
+            <div class=3D"row">
+              <div>
+                <label for=3D"n-date">Date (night of)</label>
+                <input id=3D"n-date" type=3D"date" required=3D"">
+              </div>
+              <div>
+                <label for=3D"n-bed">Bedtime</label>
+                <input id=3D"n-bed" type=3D"time">
+              </div>
+            </div>
+            <div class=3D"row">
+              <div>
+                <label for=3D"n-total">Total awakenings to void</label>
+                <input id=3D"n-total" type=3D"number" min=3D"0" max=3D"20" =
+value=3D"3" required=3D"">
+              </div>
+              <div>
+                <label for=3D"n-day">Daytime void interval (hours)</label>
+                <input id=3D"n-day" type=3D"number" min=3D"0" step=3D"0.25"=
+ placeholder=3D"e.g. 1.5">
+              </div>
+            </div>
+            <label for=3D"n-times">Wake times (optional, comma-separated)</=
+label>
+            <input id=3D"n-times" placeholder=3D"00:15, 02:10, 04:00, 05:45=
+">
+            <div class=3D"row">
+              <div>
+                <label for=3D"n-fluid">Fluid after 6pm</label>
+                <select id=3D"n-fluid">
+                  <option>Low</option>
+                  <option>Moderate</option>
+                  <option>High</option>
+                </select>
+              </div>
+              <div>
+                <label for=3D"n-sleep">Sleep quality impact (1=E2=80=9310, =
+10=3Dworst)</label>
+                <input id=3D"n-sleep" type=3D"number" min=3D"1" max=3D"10" =
+value=3D"6">
+              </div>
+            </div>
+            <label for=3D"n-ptsd">PTSD / medication notes</label>
+            <textarea id=3D"n-ptsd" placeholder=3D"Nightmare then bathroom;=
+ hard to fall back asleep; med X started=E2=80=A6"></textarea>
+            <label for=3D"n-next">Next-day function impact</label>
+            <textarea id=3D"n-next" placeholder=3D"Fatigue, irritability, w=
+orse concentration=E2=80=A6"></textarea>
+            <div class=3D"actions">
+              <button class=3D"btn" type=3D"submit">Save night</button>
+              <button class=3D"btn secondary" type=3D"button" id=3D"export-=
+nocturia">Export CSV for Sheets</button>
+            </div>
+          </form>
+        </div>
+        <div class=3D"card">
+          <h2>Recent nights</h2>
+          <p class=3D"sub">Stored locally in this browser</p>
+          <div id=3D"nocturia-list"><p class=3D"empty">No nights logged yet=
+. Enter last night=E2=80=99s wake-to-void count.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CFR -->
+    <section id=3D"cfr" class=3D"panel stack">
+      <div class=3D"card">
+        <h2>38 CFR =C2=A7 3.310 =E2=80=94 Secondary service connection</h2>
+        <p class=3D"sub">Legal basis for both claims</p>
+        <p>Disability proximately due to or the result of a service-connect=
+ed disease or injury shall be service connected. You can win on <strong>cau=
+sation</strong> and/or <strong>aggravation</strong>. Ask any nexus opinion =
+to address both.</p>
+      </div>
+      <div class=3D"card">
+        <h2>Migraines =E2=80=94 =C2=A7 4.124a DC 8100</h2>
+        <table class=3D"cfr-table">
+          <tbody><tr><th class=3D"pct">%</th><th>Criteria</th></tr>
+          <tr><td class=3D"pct">50</td><td>Very frequent completely prostra=
+ting and prolonged attacks productive of severe economic inadaptability</td=
+></tr>
+          <tr><td class=3D"pct">30</td><td>Characteristic prostrating attac=
+ks averaging once a month over last several months</td></tr>
+          <tr><td class=3D"pct">10</td><td>Characteristic prostrating attac=
+ks averaging one in 2 months over last several months</td></tr>
+          <tr><td class=3D"pct">0</td><td>Less frequent attacks</td></tr>
+        </tbody></table>
+        <p><strong>Prostrating (DBQ):</strong> extreme exhaustion, powerles=
+sness, debilitation, or incapacitation with substantial inability to engage=
+ in ordinary activities.</p>
+      </div>
+      <div class=3D"card">
+        <h2>Urinary frequency / nocturia =E2=80=94 =C2=A7 4.115a</h2>
+        <table class=3D"cfr-table">
+          <tbody><tr><th class=3D"pct">%</th><th>Criteria</th></tr>
+          <tr><td class=3D"pct">40</td><td>Daytime voiding &lt; 1 hour, <em=
+>or</em> awakening to void <strong>5+ times</strong> per night</td></tr>
+          <tr><td class=3D"pct">20</td><td>Daytime interval 1=E2=80=932 hou=
+rs, <em>or</em> awakening <strong>3=E2=80=934 times</strong> per night</td>=
+</tr>
+          <tr><td class=3D"pct">10</td><td>Daytime interval 2=E2=80=933 hou=
+rs, <em>or</em> awakening <strong>2 times</strong> per night</td></tr>
+        </tbody></table>
+      </div>
+      <div class=3D"card">
+        <h2>Nexus theories to document</h2>
+        <ul>
+          <li><strong>Migraines:</strong> PTSD stress/hyperarousal as trigg=
+er or aggravator; sleep loss; flares coinciding with PTSD; literature linki=
+ng PTSD and migraine disability.</li>
+          <li><strong>Nocturia:</strong> hyperarousal/nightmares waking you=
+; fragmented sleep; PTSD medication side effects; next-day worsening of PTS=
+D from sleep loss.</li>
+        </ul>
+        <p class=3D"muted" style=3D"margin-bottom:0;font-size:0.88rem">Offi=
+cial text: <a href=3D"https://www.ecfr.gov/current/title-38/section-3.310" =
+target=3D"_blank" rel=3D"noopener">=C2=A7 3.310</a>, <a href=3D"https://www=
+.ecfr.gov/current/title-38/section-4.124a" target=3D"_blank" rel=3D"noopene=
+r">=C2=A7 4.124a</a>, <a href=3D"https://www.ecfr.gov/current/title-38/sect=
+ion-4.115a" target=3D"_blank" rel=3D"noopener">=C2=A7 4.115a</a>.</p>
+      </div>
+    </section>
+
+    <!-- C&P PREP -->
+    <section id=3D"cp" class=3D"panel stack">
+      <div class=3D"card">
+        <h2>C&amp;P exam prep =E2=80=94 your answers</h2>
+        <p class=3D"sub">Saved in this browser. Copy into Google Docs befor=
+e the exam.</p>
+        <div class=3D"prep-q">
+          <label for=3D"cp-m-timeline">Migraines: when did they start relat=
+ive to PTSD?</label>
+          <textarea id=3D"cp-m-timeline" data-cp=3D"mTimeline"></textarea>
+        </div>
+        <div class=3D"prep-q">
+          <label for=3D"cp-m-freq">Average prostrating attacks per month (l=
+ast several months)?</label>
+          <textarea id=3D"cp-m-freq" data-cp=3D"mFreq"></textarea>
+        </div>
+        <div class=3D"prep-q">
+          <label for=3D"cp-m-stop">What must you stop doing during an attac=
+k?</label>
+          <textarea id=3D"cp-m-stop" data-cp=3D"mStop"></textarea>
+        </div>
+        <div class=3D"prep-q">
+          <label for=3D"cp-m-work">Work / economic impact examples?</label>
+          <textarea id=3D"cp-m-work" data-cp=3D"mWork"></textarea>
+        </div>
+        <div class=3D"prep-q">
+          <label for=3D"cp-n-count">Typical night void count over last seve=
+ral months?</label>
+          <textarea id=3D"cp-n-count" data-cp=3D"nCount"></textarea>
+        </div>
+        <div class=3D"prep-q">
+          <label for=3D"cp-n-link">How PTSD / meds connect to night urinati=
+on?</label>
+          <textarea id=3D"cp-n-link" data-cp=3D"nLink"></textarea>
+        </div>
+        <div class=3D"prep-q">
+          <label for=3D"cp-nexus">Nexus talking points (cause and aggravati=
+on)</label>
+          <textarea id=3D"cp-nexus" data-cp=3D"nexus"></textarea>
+        </div>
+        <div class=3D"actions">
+          <button class=3D"btn" type=3D"button" id=3D"save-cp">Save prep an=
+swers</button>
+          <button class=3D"btn secondary" type=3D"button" id=3D"export-cp-d=
+oc">Copy Docs-ready text</button>
+        </div>
+      </div>
+      <div class=3D"card">
+        <h2>Day-of checklist</h2>
+        <ul>
+          <li>Upload latest logs to VA.gov before the appointment.</li>
+          <li>Bring printed migraine log, nocturia log, medication list, st=
+atements.</li>
+          <li>If symptom-free that day, say so =E2=80=94 then describe a ty=
+pical attack from the log.</li>
+          <li>Use counts, not =E2=80=9Coften.=E2=80=9D</li>
+          <li>Describe interruptions of ordinary activity for prostrating a=
+ttacks.</li>
+          <li>Ask (politely) that aggravation be considered if causation is=
+ doubted.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- EXPORT -->
+    <section id=3D"export" class=3D"panel stack">
+      <div class=3D"card">
+        <h2>Import this kit into Google Drive</h2>
+        <ol>
+          <li>Create a Drive folder: <strong>VA Secondary Claims =E2=80=94 =
+PTSD</strong>.</li>
+          <li>Upload CSV files from <code>va-claim-kit/templates/</code> =
+=E2=86=92 Open with Google Sheets.</li>
+          <li>Upload HTML files from <code>va-claim-kit/docs/</code> =E2=86=
+=92 Open with Google Docs.</li>
+          <li>Or use the buttons below to download live logs from this trac=
+ker and File =E2=86=92 Import into Sheets.</li>
+        </ol>
+        <div class=3D"actions">
+          <button class=3D"btn" type=3D"button" id=3D"export-migraines-2">D=
+ownload migraine CSV</button>
+          <button class=3D"btn" type=3D"button" id=3D"export-nocturia-2">Do=
+wnload nocturia CSV</button>
+          <button class=3D"btn secondary" type=3D"button" id=3D"export-all-=
+summary">Download summary for Docs</button>
+          <button class=3D"btn ghost" type=3D"button" id=3D"print-packet">P=
+rint C&amp;P packet</button>
+        </div>
+      </div>
+      <div class=3D"card">
+        <h2>Docs paste preview</h2>
+        <p class=3D"sub">Copy this into a Google Doc titled =E2=80=9CClaim =
+evidence summary=E2=80=9D</p>
+        <pre class=3D"doc-export" id=3D"summary-preview">VA SECONDARY CLAIM=
+ EVIDENCE SUMMARY
+Primary: PTSD (70%)
+Secondaries claimed: Migraines (DC 8100); Urinary frequency / nocturia (38 =
+CFR 4.115a)
+Legal basis: 38 CFR =C2=A7 3.310 (cause and/or aggravation)
+
+=3D=3D=3D MIGRAINES =3D=3D=3D
+Entries logged: 0
+Prostrating attacks logged: 0
+Completely prostrating &amp; prolonged: 0
+C&amp;P =E2=80=94 timeline:=20
+C&amp;P =E2=80=94 frequency:=20
+C&amp;P =E2=80=94 what I stop doing:=20
+C&amp;P =E2=80=94 work impact:=20
+
+=3D=3D=3D NOCTURIA / URINARY FREQUENCY =3D=3D=3D
+Nights logged: 0
+Average awakenings to void: n/a
+C&amp;P =E2=80=94 typical count:=20
+C&amp;P =E2=80=94 PTSD/meds link:=20
+
+=3D=3D=3D NEXUS TALKING POINTS =3D=3D=3D
+
+
+=3D=3D=3D RECENT MIGRAINE DATES =3D=3D=3D
+(none)
+
+=3D=3D=3D RECENT NOCTURIA DATES =3D=3D=3D
+(none)
+
+Generated for personal claim organization. Not legal advice.
+</pre>
+        <div class=3D"actions">
+          <button class=3D"btn secondary" type=3D"button" id=3D"copy-summar=
+y">Copy summary</button>
+        </div>
+      </div>
+      <div class=3D"card">
+        <h2>Data controls</h2>
+        <p class=3D"sub">Your entries never leave this device unless you ex=
+port them.</p>
+        <div class=3D"actions">
+          <button class=3D"btn danger" type=3D"button" id=3D"clear-data">Cl=
+ear all local tracker data</button>
+        </div>
+      </div>
+      <div class=3D"card">
+        <h2>Static kit files in this repo</h2>
+        <ul>
+          <li><code>templates/migraine-occurrence-log.csv</code></li>
+          <li><code>templates/nocturia-occurrence-log.csv</code></li>
+          <li><code>templates/medication-side-effect-log.csv</code></li>
+          <li><code>templates/evidence-checklist.csv</code></li>
+          <li><code>docs/01</code> through <code>docs/05</code> =E2=80=94 H=
+ow to use, CFR, C&amp;P prep, statements, filing checklist</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class=3D"site">
+    <div class=3D"wrap">
+      Educational organizer for self-filed VA secondary claims. Not affilia=
+ted with the U.S. Department of Veterans Affairs. Cross-check CFR text on e=
+CFR before relying on rating criteria.
+    </div>
+  </footer>
+
+  <div class=3D"toast" id=3D"toast" role=3D"status"></div>
+
+ =20
+
+
+</body></html>
+------MultipartBoundary--gZpgycFycxJ6myJGLN73ozgfvRAOxLqVWFBzUM9TVw----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@500;600&display=swap
+
+@charset "utf-8";
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 400; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstat=
+ic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxTKYbABA=
+.woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1C8A, U+20B4, U+=
+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 400; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstat=
+ic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxaKYbABA=
+.woff2") format("woff2"); unicode-range: U+301, U+400-45F, U+490-491, U+4B0=
+-4B1, U+2116; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 400; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstat=
+ic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxdKYbABA=
+.woff2") format("woff2"); unicode-range: U+370-377, U+37A-37F, U+384-38A, U=
++38C, U+38E-3A1, U+3A3-3FF; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 400; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstat=
+ic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxRKYbABA=
+.woff2") format("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U=
++168-169, U+1A0-1A1, U+1AF-1B0, U+300-301, U+303-304, U+308-309, U+323, U+3=
+29, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 400; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstat=
+ic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxQKYbABA=
+.woff2") format("woff2"); unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U=
++2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-=
+1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 400; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstat=
+ic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxeKYY.wo=
+ff2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, =
+U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+21=
+91, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 500; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstat=
+ic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxTKYbABA=
+.woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1C8A, U+20B4, U+=
+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 500; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstat=
+ic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxaKYbABA=
+.woff2") format("woff2"); unicode-range: U+301, U+400-45F, U+490-491, U+4B0=
+-4B1, U+2116; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 500; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstat=
+ic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxdKYbABA=
+.woff2") format("woff2"); unicode-range: U+370-377, U+37A-37F, U+384-38A, U=
++38C, U+38E-3A1, U+3A3-3FF; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 500; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstat=
+ic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxRKYbABA=
+.woff2") format("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U=
++168-169, U+1A0-1A1, U+1AF-1B0, U+300-301, U+303-304, U+308-309, U+323, U+3=
+29, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 500; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstat=
+ic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxQKYbABA=
+.woff2") format("woff2"); unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U=
++2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-=
+1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 500; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstat=
+ic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxeKYY.wo=
+ff2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, =
+U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+21=
+91, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 600; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstat=
+ic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxTKYbABA=
+.woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1C8A, U+20B4, U+=
+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 600; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstat=
+ic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxaKYbABA=
+.woff2") format("woff2"); unicode-range: U+301, U+400-45F, U+490-491, U+4B0=
+-4B1, U+2116; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 600; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstat=
+ic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxdKYbABA=
+.woff2") format("woff2"); unicode-range: U+370-377, U+37A-37F, U+384-38A, U=
++38C, U+38E-3A1, U+3A3-3FF; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 600; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstat=
+ic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxRKYbABA=
+.woff2") format("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U=
++168-169, U+1A0-1A1, U+1AF-1B0, U+300-301, U+303-304, U+308-309, U+323, U+3=
+29, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 600; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstat=
+ic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxQKYbABA=
+.woff2") format("woff2"); unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U=
++2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-=
+1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 600; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstat=
+ic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxeKYY.wo=
+ff2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, =
+U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+21=
+91, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 700; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstat=
+ic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxTKYbABA=
+.woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1C8A, U+20B4, U+=
+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 700; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstat=
+ic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxaKYbABA=
+.woff2") format("woff2"); unicode-range: U+301, U+400-45F, U+490-491, U+4B0=
+-4B1, U+2116; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 700; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstat=
+ic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxdKYbABA=
+.woff2") format("woff2"); unicode-range: U+370-377, U+37A-37F, U+384-38A, U=
++38C, U+38E-3A1, U+3A3-3FF; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 700; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstat=
+ic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxRKYbABA=
+.woff2") format("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U=
++168-169, U+1A0-1A1, U+1AF-1B0, U+300-301, U+303-304, U+308-309, U+323, U+3=
+29, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 700; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstat=
+ic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxQKYbABA=
+.woff2") format("woff2"); unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U=
++2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-=
+1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight:=
+ 700; font-stretch: 100%; font-display: swap; src: url("https://fonts.gstat=
+ic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxeKYY.wo=
+ff2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, =
+U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+21=
+91, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: "IBM Plex Serif"; font-style: normal; font-weight=
+: 500; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexser=
+if/v20/jizAREVNn1dOx-zrZ2X3pZvkTi3s-CI5q1vxiQ.woff2") format("woff2"); unic=
+ode-range: U+460-52F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E=
+-FE2F; }
+
+@font-face { font-family: "IBM Plex Serif"; font-style: normal; font-weight=
+: 500; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexser=
+if/v20/jizAREVNn1dOx-zrZ2X3pZvkTi3s-CIwq1vxiQ.woff2") format("woff2"); unic=
+ode-range: U+301, U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "IBM Plex Serif"; font-style: normal; font-weight=
+: 500; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexser=
+if/v20/jizAREVNn1dOx-zrZ2X3pZvkTi3s-CI7q1vxiQ.woff2") format("woff2"); unic=
+ode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0=
+, U+300-301, U+303-304, U+308-309, U+323, U+329, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "IBM Plex Serif"; font-style: normal; font-weight=
+: 500; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexser=
+if/v20/jizAREVNn1dOx-zrZ2X3pZvkTi3s-CI6q1vxiQ.woff2") format("woff2"); unic=
+ode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+=
+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+2=
+0AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "IBM Plex Serif"; font-style: normal; font-weight=
+: 500; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexser=
+if/v20/jizAREVNn1dOx-zrZ2X3pZvkTi3s-CI0q1s.woff2") format("woff2"); unicode=
+-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+=
+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+=
+FEFF, U+FFFD; }
+
+@font-face { font-family: "IBM Plex Serif"; font-style: normal; font-weight=
+: 600; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexser=
+if/v20/jizAREVNn1dOx-zrZ2X3pZvkTi3A_yI5q1vxiQ.woff2") format("woff2"); unic=
+ode-range: U+460-52F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E=
+-FE2F; }
+
+@font-face { font-family: "IBM Plex Serif"; font-style: normal; font-weight=
+: 600; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexser=
+if/v20/jizAREVNn1dOx-zrZ2X3pZvkTi3A_yIwq1vxiQ.woff2") format("woff2"); unic=
+ode-range: U+301, U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "IBM Plex Serif"; font-style: normal; font-weight=
+: 600; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexser=
+if/v20/jizAREVNn1dOx-zrZ2X3pZvkTi3A_yI7q1vxiQ.woff2") format("woff2"); unic=
+ode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0=
+, U+300-301, U+303-304, U+308-309, U+323, U+329, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "IBM Plex Serif"; font-style: normal; font-weight=
+: 600; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexser=
+if/v20/jizAREVNn1dOx-zrZ2X3pZvkTi3A_yI6q1vxiQ.woff2") format("woff2"); unic=
+ode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+=
+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+2=
+0AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "IBM Plex Serif"; font-style: normal; font-weight=
+: 600; font-display: swap; src: url("https://fonts.gstatic.com/s/ibmplexser=
+if/v20/jizAREVNn1dOx-zrZ2X3pZvkTi3A_yI0q1s.woff2") format("woff2"); unicode=
+-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+=
+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+=
+FEFF, U+FFFD; }
+------MultipartBoundary--gZpgycFycxJ6myJGLN73ozgfvRAOxLqVWFBzUM9TVw----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-624cb12b-725e-401c-af35-a5647bfd12eb@mhtml.blink
+
+@charset "utf-8";
+
+:root { --ink: #142033; --ink-soft: #3d4a5c; --line: #d5dde8; --paper: #f7f=
+5f1; --card: #ffffff; --navy: #1e3a5f; --navy-deep: #132848; --accent: #2f6=
+f5e; --accent-soft: #e6f1ed; --warn: #8a5a2b; --warn-soft: #faf6f0; --dange=
+r: #8b3a3a; --radius: 10px; --shadow: 0 1px 0 rgba(20, 32, 51, 0.04); --fon=
+t: "IBM Plex Sans", system-ui, sans-serif; --display: "IBM Plex Serif", Geo=
+rgia, serif; }
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body { margin: 0px; font-family: var(--font); color: var(--ink); background=
+: radial-gradient(1200px 500px at 10% -10%, #e8eef6 0%, transparent 55%),
+        radial-gradient(900px 400px at 100% 0%, #e7f0ec 0%, transparent 50%=
+),
+        var(--paper); line-height: 1.45; }
+
+a { color: var(--navy); }
+
+header.app-header { background: linear-gradient(135deg, var(--navy-deep), v=
+ar(--navy)); color: rgb(244, 247, 251); padding: 28px 20px 22px; }
+
+.wrap { max-width: 1100px; margin: 0px auto; padding: 0px 16px; }
+
+header h1 { font-family: var(--display); font-size: clamp(1.55rem, 3vw, 2re=
+m); font-weight: 600; margin: 0px 0px 8px; letter-spacing: -0.02em; }
+
+header p { margin: 0px; max-width: 62ch; color: rgb(213, 222, 234); font-si=
+ze: 0.98rem; }
+
+.badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+
+.badge { display: inline-flex; align-items: center; gap: 6px; background: r=
+gba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.18); borde=
+r-radius: 999px; padding: 4px 10px; font-size: 0.78rem; }
+
+nav.tabs { position: sticky; top: 0px; z-index: 20; background: rgba(247, 2=
+45, 241, 0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--=
+line); }
+
+nav.tabs .wrap { display: flex; gap: 4px; overflow-x: auto; padding: 10px 1=
+6px; }
+
+nav.tabs button { border: 1px solid transparent; background: transparent; c=
+olor: var(--ink-soft); font-style: inherit; font-variant: inherit; font-str=
+etch: inherit; line-height: inherit; font-family: inherit; font-optical-siz=
+ing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-featur=
+e-settings: inherit; font-variation-settings: inherit; font-language-overri=
+de: inherit; font-weight: 500; font-size: 0.9rem; padding: 8px 12px; border=
+-radius: 8px; cursor: pointer; white-space: nowrap; }
+
+nav.tabs button[aria-selected=3D"true"] { background: var(--card); border-c=
+olor: var(--line); color: var(--navy); box-shadow: var(--shadow); }
+
+main { padding: 22px 0px 64px; }
+
+.panel { display: none; }
+
+.panel.active { display: block; animation: 0.25s ease 0s 1 normal none runn=
+ing fade; }
+
+@keyframes fade {=20
+  0% { opacity: 0; transform: translateY(4px); }
+  100% { opacity: 1; transform: none; }
+}
+
+.grid-2 { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 16px; }
+
+@media (max-width: 860px) {
+  .grid-2 { grid-template-columns: 1fr; }
+}
+
+.card { background: var(--card); border: 1px solid var(--line); border-radi=
+us: var(--radius); padding: 18px; box-shadow: var(--shadow); }
+
+.card h2 { font-family: var(--display); font-size: 1.2rem; margin: 0px 0px =
+4px; color: var(--navy-deep); }
+
+.card .sub { color: var(--ink-soft); font-size: 0.9rem; margin: 0px 0px 14p=
+x; }
+
+label { display: block; font-size: 0.82rem; font-weight: 600; margin: 10px =
+0px 4px; color: var(--ink-soft); }
+
+input, select, textarea { width: 100%; font: inherit; border: 1px solid var=
+(--line); border-radius: 8px; padding: 9px 10px; background: rgb(255, 255, =
+255); color: var(--ink); }
+
+textarea { min-height: 72px; resize: vertical; }
+
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+@media (max-width: 560px) {
+  .row { grid-template-columns: 1fr; }
+}
+
+.row-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+
+@media (max-width: 640px) {
+  .row-3 { grid-template-columns: 1fr; }
+}
+
+.checks { display: flex; flex-wrap: wrap; gap: 8px 14px; margin-top: 6px; }
+
+.checks label { display: flex; align-items: center; gap: 6px; font-weight: =
+500; margin: 0px; }
+
+.checks input { width: auto; }
+
+.actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+
+button.btn { font-style: inherit; font-variant: inherit; font-stretch: inhe=
+rit; line-height: inherit; font-family: inherit; font-optical-sizing: inher=
+it; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings=
+: inherit; font-variation-settings: inherit; font-language-override: inheri=
+t; font-weight: 600; font-size: 0.9rem; border-radius: 8px; padding: 9px 14=
+px; border: 1px solid var(--navy); background: var(--navy); color: rgb(255,=
+ 255, 255); cursor: pointer; }
+
+button.btn:hover { background: var(--navy-deep); }
+
+button.btn.secondary { background: rgb(255, 255, 255); color: var(--navy); =
+}
+
+button.btn.ghost { background: transparent; border-color: var(--line); colo=
+r: var(--ink-soft); }
+
+button.btn.danger { background: rgb(255, 255, 255); color: var(--danger); b=
+order-color: rgb(224, 188, 188); }
+
+.stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10p=
+x; margin-bottom: 14px; }
+
+@media (max-width: 640px) {
+  .stat-grid { grid-template-columns: 1fr; }
+}
+
+.stat { background: var(--accent-soft); border: 1px solid rgb(207, 224, 217=
+); border-radius: 8px; padding: 12px; }
+
+.stat.navy { background: rgb(234, 240, 247); border-color: rgb(201, 214, 23=
+0); }
+
+.stat .k { font-size: 0.75rem; color: var(--ink-soft); font-weight: 600; te=
+xt-transform: uppercase; letter-spacing: 0.04em; }
+
+.stat .v { font-size: 1.45rem; font-weight: 700; color: var(--navy-deep); m=
+argin-top: 2px; }
+
+.stat .h { font-size: 0.8rem; color: var(--ink-soft); margin-top: 4px; }
+
+table.data { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+
+table.data th, table.data td { border-bottom: 1px solid var(--line); paddin=
+g: 8px 6px; text-align: left; vertical-align: top; }
+
+table.data th { font-size: 0.75rem; text-transform: uppercase; letter-spaci=
+ng: 0.03em; color: var(--ink-soft); }
+
+table.data tr:hover td { background: rgb(250, 251, 252); }
+
+.empty { color: var(--ink-soft); font-size: 0.92rem; padding: 12px 0px; }
+
+.callout { border-left: 4px solid var(--navy); background: rgb(238, 243, 24=
+8); padding: 12px 14px; border-radius: 0px 8px 8px 0px; margin: 12px 0px; f=
+ont-size: 0.92rem; }
+
+.callout.warn { border-left-color: var(--warn); background: rgb(250, 246, 2=
+40); }
+
+.cfr-table { width: 100%; border-collapse: collapse; margin: 10px 0px 18px;=
+ font-size: 0.92rem; }
+
+.cfr-table th, .cfr-table td { border: 1px solid var(--line); padding: 8px =
+10px; text-align: left; }
+
+.cfr-table th { background: var(--navy); color: rgb(255, 255, 255); }
+
+.pct { font-weight: 700; width: 64px; }
+
+.prep-q { margin: 0px 0px 12px; }
+
+.prep-q textarea { min-height: 56px; }
+
+.toast { position: fixed; bottom: 18px; right: 18px; z-index: 50; backgroun=
+d: var(--navy-deep); color: rgb(255, 255, 255); padding: 10px 14px; border-=
+radius: 8px; opacity: 0; transform: translateY(8px); pointer-events: none; =
+transition: 0.25s; }
+
+.toast.show { opacity: 1; transform: none; }
+
+footer.site { border-top: 1px solid var(--line); padding: 18px 0px 28px; co=
+lor: var(--ink-soft); font-size: 0.82rem; }
+
+.stack > * + * { margin-top: 16px; }
+
+.tag { display: inline-block; font-size: 0.72rem; font-weight: 600; padding=
+: 2px 7px; border-radius: 999px; background: rgb(232, 238, 246); color: var=
+(--navy); }
+
+.tag.yes { background: rgb(230, 241, 237); color: var(--accent); }
+
+.muted { color: var(--ink-soft); }
+
+.doc-export { white-space: pre-wrap; font-family: ui-monospace, SFMono-Regu=
+lar, Menlo, monospace; font-size: 0.78rem; background: rgb(15, 26, 42); col=
+or: rgb(232, 238, 246); padding: 14px; border-radius: 8px; max-height: 280p=
+x; overflow: auto; }
+------MultipartBoundary--gZpgycFycxJ6myJGLN73ozgfvRAOxLqVWFBzUM9TVw------
