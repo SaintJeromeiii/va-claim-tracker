@@ -255,6 +255,9 @@
       <div class="callout warn">
         <strong>Not legal advice.</strong> This is a personal evidence organizer for self-filing under 38 CFR § 3.310. Verify current rules on eCFR / VA.gov. Upload evidence to your claim file — do not rely on the examiner to submit your logs.
       </div>
+      <div class="callout">
+        <strong>Where your data lives:</strong> Entries save automatically in <em>this browser</em>. To use Chrome and another browser (or another computer), use <strong>Google export → Download full backup</strong>, keep the file in Google Drive, then <strong>Import backup</strong> on the other browser.
+      </div>
       <div class="grid-2">
         <div class="card">
           <h2>Migraine snapshot</h2>
@@ -315,9 +318,10 @@
     <section id="migraines" class="panel">
       <div class="grid-2">
         <div class="card">
-          <h2>Log a migraine</h2>
-          <p class="sub">Capture what DC 8100 and the Headaches DBQ care about</p>
+          <h2 id="migraine-form-title">Log a migraine</h2>
+          <p class="sub" id="migraine-form-sub">Capture what DC 8100 and the Headaches DBQ care about</p>
           <form id="migraine-form">
+            <input type="hidden" id="m-edit-id" value="" />
             <div class="row">
               <div>
                 <label for="m-date">Date</label>
@@ -409,7 +413,8 @@
             <label for="m-notes">Notes for C&amp;P</label>
             <textarea id="m-notes" placeholder="Anything you want to remember for the exam"></textarea>
             <div class="actions">
-              <button class="btn" type="submit">Save migraine</button>
+              <button class="btn" type="submit" id="migraine-submit">Save migraine</button>
+              <button class="btn ghost" type="button" id="migraine-cancel-edit" hidden>Cancel edit</button>
               <button class="btn secondary" type="button" id="export-migraines">Export CSV for Sheets</button>
             </div>
           </form>
@@ -426,9 +431,10 @@
     <section id="nocturia" class="panel">
       <div class="grid-2">
         <div class="card">
-          <h2>Log a night</h2>
-          <p class="sub">Count awakenings to void — the § 4.115a key number</p>
+          <h2 id="nocturia-form-title">Log a night</h2>
+          <p class="sub" id="nocturia-form-sub">Count awakenings to void — the § 4.115a key number</p>
           <form id="nocturia-form">
+            <input type="hidden" id="n-edit-id" value="" />
             <div class="row">
               <div>
                 <label for="n-date">Date (night of)</label>
@@ -470,7 +476,8 @@
             <label for="n-next">Next-day function impact</label>
             <textarea id="n-next" placeholder="Fatigue, irritability, worse concentration…"></textarea>
             <div class="actions">
-              <button class="btn" type="submit">Save night</button>
+              <button class="btn" type="submit" id="nocturia-submit">Save night</button>
+              <button class="btn ghost" type="button" id="nocturia-cancel-edit" hidden>Cancel edit</button>
               <button class="btn secondary" type="button" id="export-nocturia">Export CSV for Sheets</button>
             </div>
           </form>
@@ -597,11 +604,20 @@
         </div>
       </div>
       <div class="card">
-        <h2>Data controls</h2>
-        <p class="sub">Your entries never leave this device unless you export them.</p>
+        <h2>Cross-browser backup (recommended)</h2>
+        <p class="sub">Browsers keep data separate on purpose. To move logs between Chrome, another browser, or another device: download a backup file, keep it in Google Drive, then Import on the other browser.</p>
+        <div class="callout">
+          Save <code>va-claim-tracker-backup.json</code> in your <strong>VA Secondary Claims — PTSD</strong> Drive folder. After you log new entries, download a fresh backup so nothing is only on one browser.
+        </div>
         <div class="actions">
+          <button class="btn" type="button" id="export-backup">Download full backup (.json)</button>
+          <label class="btn secondary" style="cursor:pointer;display:inline-flex;align-items:center;gap:6px;margin:0">
+            Import backup
+            <input id="import-backup" type="file" accept="application/json,.json" hidden />
+          </label>
           <button class="btn danger" type="button" id="clear-data">Clear all local tracker data</button>
         </div>
+        <p class="muted" style="font-size:0.86rem;margin:12px 0 0">Import replaces the data currently in <em>this</em> browser with the backup file.</p>
       </div>
       <div class="card">
         <h2>Static kit files in this repo</h2>
@@ -678,12 +694,94 @@
       });
     });
 
+    function resetMigraineForm() {
+      document.getElementById("migraine-form").reset();
+      document.getElementById("m-edit-id").value = "";
+      document.getElementById("m-date").value = todayISO();
+      document.getElementById("m-severity").value = "7";
+      document.getElementById("m-prost").value = "Y";
+      document.getElementById("m-complete").value = "N";
+      document.getElementById("m-relief").value = "Partial";
+      document.getElementById("m-work").value = "Y";
+      document.getElementById("migraine-form-title").textContent = "Log a migraine";
+      document.getElementById("migraine-form-sub").textContent = "Capture what DC 8100 and the Headaches DBQ care about";
+      document.getElementById("migraine-submit").textContent = "Save migraine";
+      document.getElementById("migraine-cancel-edit").hidden = true;
+    }
+
+    function resetNocturiaForm() {
+      document.getElementById("nocturia-form").reset();
+      document.getElementById("n-edit-id").value = "";
+      document.getElementById("n-date").value = todayISO();
+      document.getElementById("n-total").value = "3";
+      document.getElementById("n-fluid").value = "Low";
+      document.getElementById("n-sleep").value = "6";
+      document.getElementById("nocturia-form-title").textContent = "Log a night";
+      document.getElementById("nocturia-form-sub").textContent = "Count awakenings to void — the § 4.115a key number";
+      document.getElementById("nocturia-submit").textContent = "Save night";
+      document.getElementById("nocturia-cancel-edit").hidden = true;
+    }
+
+    function setSymptomChecks(symptoms) {
+      const set = new Set(String(symptoms || "").split(";").map((s) => s.trim()).filter(Boolean));
+      document.querySelectorAll('input[name="msym"]').forEach((c) => {
+        c.checked = set.has(c.value);
+      });
+    }
+
+    function beginEditMigraine(id) {
+      const m = state.migraines.find((x) => x.id === id);
+      if (!m) return;
+      document.getElementById("m-edit-id").value = m.id;
+      document.getElementById("m-date").value = m.date || todayISO();
+      document.getElementById("m-start").value = m.start || "";
+      document.getElementById("m-end").value = m.end || "";
+      document.getElementById("m-duration").value = m.duration || "";
+      document.getElementById("m-severity").value = m.severity || "7";
+      document.getElementById("m-location").value = m.location || "Left side";
+      setSymptomChecks(m.symptoms);
+      document.getElementById("m-prost").value = m.prostrating || "Y";
+      document.getElementById("m-complete").value = m.completely || "N";
+      document.getElementById("m-ptsd").value = m.ptsd || "";
+      document.getElementById("m-med").value = m.med || "";
+      document.getElementById("m-relief").value = m.relief || "Partial";
+      document.getElementById("m-work").value = m.work || "Y";
+      document.getElementById("m-impact").value = m.impact || "";
+      document.getElementById("m-notes").value = m.notes || "";
+      document.getElementById("migraine-form-title").textContent = "Edit migraine";
+      document.getElementById("migraine-form-sub").textContent = "Fix any field, then save to update this entry";
+      document.getElementById("migraine-submit").textContent = "Update migraine";
+      document.getElementById("migraine-cancel-edit").hidden = false;
+      document.getElementById("migraine-form").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function beginEditNocturia(id) {
+      const n = state.nocturia.find((x) => x.id === id);
+      if (!n) return;
+      document.getElementById("n-edit-id").value = n.id;
+      document.getElementById("n-date").value = n.date || todayISO();
+      document.getElementById("n-bed").value = n.bed || "";
+      document.getElementById("n-total").value = n.total ?? 3;
+      document.getElementById("n-day").value = n.daytime || "";
+      document.getElementById("n-times").value = n.times || "";
+      document.getElementById("n-fluid").value = n.fluid || "Low";
+      document.getElementById("n-sleep").value = n.sleep || "6";
+      document.getElementById("n-ptsd").value = n.ptsd || "";
+      document.getElementById("n-next").value = n.next || "";
+      document.getElementById("nocturia-form-title").textContent = "Edit night";
+      document.getElementById("nocturia-form-sub").textContent = "Fix any field, then save to update this entry";
+      document.getElementById("nocturia-submit").textContent = "Update night";
+      document.getElementById("nocturia-cancel-edit").hidden = false;
+      document.getElementById("nocturia-form").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
     // Migraine form
     document.getElementById("migraine-form").addEventListener("submit", (e) => {
       e.preventDefault();
       const syms = [...document.querySelectorAll('input[name="msym"]:checked')].map((c) => c.value);
+      const editId = document.getElementById("m-edit-id").value;
       const entry = {
-        id: crypto.randomUUID(),
+        id: editId || crypto.randomUUID(),
         date: document.getElementById("m-date").value,
         start: document.getElementById("m-start").value,
         end: document.getElementById("m-end").value,
@@ -700,24 +798,26 @@
         impact: document.getElementById("m-impact").value,
         notes: document.getElementById("m-notes").value,
       };
-      state.migraines.unshift(entry);
+      if (editId) {
+        const idx = state.migraines.findIndex((m) => m.id === editId);
+        if (idx >= 0) state.migraines[idx] = entry;
+        else state.migraines.unshift(entry);
+        toast("Migraine updated");
+      } else {
+        state.migraines.unshift(entry);
+        toast("Migraine saved");
+      }
       save(state);
-      e.target.reset();
-      document.getElementById("m-date").value = todayISO();
-      document.getElementById("m-severity").value = "7";
-      document.getElementById("m-prost").value = "Y";
-      document.getElementById("m-complete").value = "N";
-      document.getElementById("m-relief").value = "Partial";
-      document.getElementById("m-work").value = "Y";
+      resetMigraineForm();
       renderMigraines();
       refreshDashboard();
-      toast("Migraine saved");
     });
 
     document.getElementById("nocturia-form").addEventListener("submit", (e) => {
       e.preventDefault();
+      const editId = document.getElementById("n-edit-id").value;
       const entry = {
-        id: crypto.randomUUID(),
+        id: editId || crypto.randomUUID(),
         date: document.getElementById("n-date").value,
         bed: document.getElementById("n-bed").value,
         total: Number(document.getElementById("n-total").value),
@@ -728,19 +828,32 @@
         ptsd: document.getElementById("n-ptsd").value,
         next: document.getElementById("n-next").value,
       };
-      state.nocturia.unshift(entry);
+      if (editId) {
+        const idx = state.nocturia.findIndex((n) => n.id === editId);
+        if (idx >= 0) state.nocturia[idx] = entry;
+        else state.nocturia.unshift(entry);
+        toast("Night updated");
+      } else {
+        state.nocturia.unshift(entry);
+        toast("Night saved");
+      }
       save(state);
-      e.target.reset();
-      document.getElementById("n-date").value = todayISO();
-      document.getElementById("n-total").value = "3";
-      document.getElementById("n-fluid").value = "Low";
-      document.getElementById("n-sleep").value = "6";
+      resetNocturiaForm();
       renderNocturia();
       refreshDashboard();
-      toast("Night saved");
+    });
+
+    document.getElementById("migraine-cancel-edit").addEventListener("click", () => {
+      resetMigraineForm();
+      toast("Edit cancelled");
+    });
+    document.getElementById("nocturia-cancel-edit").addEventListener("click", () => {
+      resetNocturiaForm();
+      toast("Edit cancelled");
     });
 
     function deleteMigraine(id) {
+      if (document.getElementById("m-edit-id").value === id) resetMigraineForm();
       state.migraines = state.migraines.filter((m) => m.id !== id);
       save(state);
       renderMigraines();
@@ -748,6 +861,7 @@
     }
 
     function deleteNocturia(id) {
+      if (document.getElementById("n-edit-id").value === id) resetNocturiaForm();
       state.nocturia = state.nocturia.filter((n) => n.id !== id);
       save(state);
       renderNocturia();
@@ -770,9 +884,15 @@
           ${m.completely === "Y" ? '<div class="tag yes" style="margin-top:4px">Complete+prolonged</div>' : ""}
         </td>
         <td>${escapeHtml(m.impact || m.notes || "—")}</td>
-        <td><button class="btn ghost" type="button" data-del-m="${m.id}">Delete</button></td>
+        <td style="white-space:nowrap">
+          <button class="btn ghost" type="button" data-edit-m="${m.id}">Edit</button>
+          <button class="btn ghost" type="button" data-del-m="${m.id}">Delete</button>
+        </td>
       </tr>`).join("")}
       </tbody></table>`;
+      el.querySelectorAll("[data-edit-m]").forEach((b) =>
+        b.addEventListener("click", () => beginEditMigraine(b.getAttribute("data-edit-m")))
+      );
       el.querySelectorAll("[data-del-m]").forEach((b) =>
         b.addEventListener("click", () => deleteMigraine(b.getAttribute("data-del-m")))
       );
@@ -791,9 +911,15 @@
         <td>${n.date}</td>
         <td><strong>${n.total}</strong></td>
         <td>${escapeHtml(n.ptsd || n.next || "—")}</td>
-        <td><button class="btn ghost" type="button" data-del-n="${n.id}">Delete</button></td>
+        <td style="white-space:nowrap">
+          <button class="btn ghost" type="button" data-edit-n="${n.id}">Edit</button>
+          <button class="btn ghost" type="button" data-del-n="${n.id}">Delete</button>
+        </td>
       </tr>`).join("")}
       </tbody></table>`;
+      el.querySelectorAll("[data-edit-n]").forEach((b) =>
+        b.addEventListener("click", () => beginEditNocturia(b.getAttribute("data-edit-n")))
+      );
       el.querySelectorAll("[data-del-n]").forEach((b) =>
         b.addEventListener("click", () => deleteNocturia(b.getAttribute("data-del-n")))
       );
@@ -1026,15 +1152,63 @@ Generated for personal claim organization. Not legal advice.
       w.print();
     });
 
-    document.getElementById("clear-data").addEventListener("click", () => {
-      if (!confirm("Delete all locally saved migraine, nocturia, and C&P prep data?")) return;
-      state = defaultState();
-      save(state);
+    function refreshAllViews() {
       renderMigraines();
       renderNocturia();
       loadCp();
       refreshDashboard();
       refreshSummary();
+    }
+
+    document.getElementById("export-backup").addEventListener("click", () => {
+      const payload = {
+        app: "va-secondary-claim-tracker",
+        version: 1,
+        exportedAt: new Date().toISOString(),
+        data: state,
+      };
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `va-claim-tracker-backup-${todayISO()}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+      toast("Backup downloaded — save it to Google Drive");
+    });
+
+    document.getElementById("import-backup").addEventListener("change", async (e) => {
+      const file = e.target.files && e.target.files[0];
+      e.target.value = "";
+      if (!file) return;
+      try {
+        const text = await file.text();
+        const parsed = JSON.parse(text);
+        const incoming = parsed.data && typeof parsed.data === "object" ? parsed.data : parsed;
+        if (!incoming || typeof incoming !== "object") throw new Error("Invalid backup");
+        const next = {
+          migraines: Array.isArray(incoming.migraines) ? incoming.migraines : [],
+          nocturia: Array.isArray(incoming.nocturia) ? incoming.nocturia : [],
+          cp: incoming.cp && typeof incoming.cp === "object" ? incoming.cp : {},
+        };
+        if (!confirm(`Import backup with ${next.migraines.length} migraine(s) and ${next.nocturia.length} night(s)? This replaces data in this browser.`)) {
+          return;
+        }
+        state = next;
+        save(state);
+        refreshAllViews();
+        toast("Backup imported");
+      } catch (err) {
+        console.error(err);
+        toast("Could not import that file");
+      }
+    });
+
+    document.getElementById("clear-data").addEventListener("click", () => {
+      if (!confirm("Delete all locally saved migraine, nocturia, and C&P prep data?")) return;
+      state = defaultState();
+      save(state);
+      refreshAllViews();
       toast("Local data cleared");
     });
 
